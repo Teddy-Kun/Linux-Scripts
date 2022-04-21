@@ -12,6 +12,7 @@ alias update='yay -Syu'
 alias c='clear'
 alias pip='python -m pip'
 alias ipconfig='ip addr'
+alias tracert='traceroute'
 PS1='[\u@\h \W]\$ '
 
 #!/bin/sh
