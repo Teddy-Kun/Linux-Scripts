@@ -13,6 +13,7 @@ alias c='clear'
 alias pip='python -m pip'
 alias ipconfig='ip addr'
 alias tracert='traceroute'
+alias drvuuid='ls -l /dev/disk/by-uuid'
 PS1='[\u@\h \W]\$ '
 
 #!/bin/sh
