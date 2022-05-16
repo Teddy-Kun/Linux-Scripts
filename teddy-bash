@@ -14,7 +14,7 @@ alias pip='python -m pip'
 alias ipconfig='ip addr'
 alias tracert='traceroute'
 alias drv_uuid='ls -l /dev/disk/by-uuid'
-alias delete_orphans='sudo pacman -Rs $ (pacman -Qtdq)'
+alias delete_orphans='sudo pacman -Rs $(pacman -Qtdq)'
 alias get_iommu='shopt -s nullglob
 for g in $(find /sys/kernel/iommu_groups/* -maxdepth 0 -type d | sort -V); do
     echo "IOMMU Group ${g##*/}:"
