@@ -5,14 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-#Powerline
-export PATH="$PATH:/home/teddy/.local/bin/"
-export LC_ALL=en_US.UTF-8
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-source /home/teddy/.local/lib/python3.10/site-packages/powerline/bindings/bash/powerline.sh
-
 alias ls='ls --color=auto'
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias vbeinfo='sudo hwinfo --framebuffer'
@@ -22,7 +14,7 @@ alias pip='python -m pip'
 alias ipconfig='ip addr'
 alias tracert='traceroute'
 alias drv_uuid='ls -l /dev/disk/by-uuid'
-
+alias delete_orphans='sudo pacman -Rs $ (pacman -Qtdq)'
 alias get_iommu='shopt -s nullglob
 for g in $(find /sys/kernel/iommu_groups/* -maxdepth 0 -type d | sort -V); do
     echo "IOMMU Group ${g##*/}:"
@@ -32,27 +24,3 @@ for g in $(find /sys/kernel/iommu_groups/* -maxdepth 0 -type d | sort -V); do
 done;'
 
 PS1='[\u@\h \W]\$ '
-
-##-----------------------------------------------------
-## synth-shell-prompt.sh
-if [ -f /home/teddy/.config/synth-shell/synth-shell-prompt.sh ] && [ -n "$( echo $- | grep i )" ]; then
-	source /home/teddy/.config/synth-shell/synth-shell-prompt.sh
-fi
-
-##-----------------------------------------------------
-## better-ls
-if [ -f /home/teddy/.config/synth-shell/better-ls.sh ] && [ -n "$( echo $- | grep i )" ]; then
-	source /home/teddy/.config/synth-shell/better-ls.sh
-fi
-
-##-----------------------------------------------------
-## alias
-if [ -f /home/teddy/.config/synth-shell/alias.sh ] && [ -n "$( echo $- | grep i )" ]; then
-	source /home/teddy/.config/synth-shell/alias.sh
-fi
-
-##-----------------------------------------------------
-## better-history
-if [ -f /home/teddy/.config/synth-shell/better-history.sh ] && [ -n "$( echo $- | grep i )" ]; then
-	source /home/teddy/.config/synth-shell/better-history.sh
-fi
